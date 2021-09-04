@@ -8,3 +8,7 @@ const client = require('./Client');
 client.on('ready', () => {
     require('./events/ReadyEvent')();
 })
+
+client.on('messageCreate', (args) => {
+    require('./events/MessageEvent')(args);
+})

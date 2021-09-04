@@ -8,7 +8,7 @@ module.exports = {
     execute: (msg) => {
         if (msg.mentions.members.first()) {
             msg.mentions.members.first().kick();
-            msg.reply({
+            msg.channel.send({
                 embeds: [
                     new MessageEmbed({
                         title: "Erfolgreich",
@@ -23,7 +23,7 @@ module.exports = {
                 ]
             })
         } else {
-            msg.reply({
+            msg.channel.send({
                 embeds: [
                     new MessageEmbed({
                         title: "Fehler",
@@ -39,5 +39,6 @@ module.exports = {
             })
         }
     },
-    admin: true
+    admin: true,
+    description: "Kicke einen Nutzer"
 }

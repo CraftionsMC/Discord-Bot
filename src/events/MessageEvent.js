@@ -24,7 +24,7 @@ module.exports = (msg) => {
                 if (msg.member.permissions.has('ADMINISTRATOR')) {
                     mod.execute(msg);
                 } else {
-                    msg.reply({
+                    msg.channel.send({
                         embeds: [
                             new MessageEmbed({
                                 title: "Fehler",
@@ -43,7 +43,7 @@ module.exports = (msg) => {
 
             delete require.cache[require.resolve(path.join(__dirname, '..', 'commands', command + '.js'))]
         } else {
-            msg.reply({
+            msg.channel.send({
                 embeds: [
                     new MessageEmbed({
                         title: "Fehler",

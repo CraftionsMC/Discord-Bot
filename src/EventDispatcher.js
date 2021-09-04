@@ -3,10 +3,8 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 
-require('dotenv').config();
+const client = require('./Client');
 
-require('./Client');
-
-require('./worker/Workers')
-
-require('./EventDispatcher')
+client.on('ready', () => {
+    require('./events/ReadyEvent')();
+})

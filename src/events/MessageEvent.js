@@ -93,30 +93,51 @@ module.exports = async (msg) => {
             })
         }
     } else {
-        let lastLevel = Levels.getLevel(msg.author.id);
-        Levels.nextXP(msg.author.id);
-        if (lastLevel !== Levels.getLevel(msg.author.id)) {
-            let channel = msg.guild.channels.cache.find(c => c.name.toLowerCase().includes('level'));
-            if(!channel) {
-                console.log("Could not find Level-up Channel in Guild " + msg.guild.id + ". Creating new...")
-                channel = await msg.guild.channels.create("level-ups")
-            }
-
-            channel.send({
+        if (msg.channel.name.toLowerCase().includes('ideen')) {
+            await msg.delete();
+            let m = await msg.channel.send({
                 embeds: [
                     new MessageEmbed({
-                        title: "Level Up!",
+                        title: "Vorschlag",
                         color: "#1084e3",
-                        description: `Herzlichen Glückwunsch <@${msg.author.id}> auf deinem neuen Pinq ${Levels.getLevel(msg.author.id)}`,
+                        description: msg.content,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: msg.author.username,
+                            icon_url: "https://cdn.discordapp.com/avatars/" + msg.author.id + "/" + msg.author.avatar + ".png"
                         },
                         fields: [],
                         timestamp: new Date()
                     })
                 ]
             })
+            m.react('👍')
+            m.react('👎')
+        } else {
+            let lastLevel = Levels.getLevel(msg.author.id);
+            Levels.nextXP(msg.author.id);
+            if (lastLevel !== Levels.getLevel(msg.author.id)) {
+                let channel = msg.guild.channels.cache.find(c => c.name.toLowerCase().includes('level'));
+                if (!channel) {
+                    console.log("Could not find Level-up Channel in Guild " + msg.guild.id + ". Creating new...")
+                    channel = await msg.guild.channels.create("level-ups")
+                }
+
+                channel.send({
+                    embeds: [
+                        new MessageEmbed({
+                            title: "Level Up!",
+                            color: "#1084e3",
+                            description: `Herzlichen Glückwunsch <@${msg.author.id}> auf deinem neuen Pinq ${Levels.getLevel(msg.author.id)}`,
+                            author: {
+                                name: "0erPinq Bot",
+                                icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            },
+                            fields: [],
+                            timestamp: new Date()
+                        })
+                    ]
+                })
+            }
         }
     }
 }

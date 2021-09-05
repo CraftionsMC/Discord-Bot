@@ -4,9 +4,12 @@
  */
 
 const PresenceUpdater = require('./PresenceUpdater');
+const Birthdays = require('./Birthdays')
 
 PresenceUpdater.start();
+Birthdays.start();
 
 module.exports = {
-    PresenceUpdater
+    PresenceUpdater,
+    Birthdays
 }

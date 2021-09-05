@@ -120,3 +120,6 @@ dist
 # Webstorm / VSCode
 .idea
 .vscode
+
+# Private Files
+private

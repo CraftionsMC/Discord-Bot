@@ -33,3 +33,5 @@ require('./Client');
 require('./worker/Workers')
 
 require('./EventDispatcher')
+
+require('./Levels')

@@ -7,7 +7,7 @@ const {MessageActionRow, MessageButton, MessageEmbed} = require("discord.js");
 
 module.exports = {
     admin: true,
-    description: "",
+    description: "Initialisiert den Ticket Kanal",
     execute: (msg) => {
         const row = new MessageActionRow()
             .addComponents(

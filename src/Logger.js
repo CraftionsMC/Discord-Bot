@@ -17,6 +17,9 @@ class Logger {
             case 2:
                 this.error(msg);
                 break
+            case 3:
+                this.command(msg)
+                break;
             default:
                 this.info(msg)
         }
@@ -32,6 +35,10 @@ class Logger {
 
     static warn(msg) {
         this.__console_log(chalk.yellow("[WARN]") + this.#getTimeStamp() + msg)
+    }
+
+    static command(msg) {
+        this.__console_log(chalk.gray("[COMMAND]") + this.#getTimeStamp() + msg)
     }
 
     static #getTimeStamp() {

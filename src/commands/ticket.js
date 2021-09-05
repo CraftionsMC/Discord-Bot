@@ -6,7 +6,7 @@
 const {MessageEmbed} = require("discord.js");
 module.exports = {
     admin: false,
-    description: "",
+    description: "Verwalte Tickets",
     execute: (msg) => {
         let args = msg.content.split(" ");
         if (args.length === 1 || args[1] === 'help') {

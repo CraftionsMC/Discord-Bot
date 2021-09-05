@@ -27,7 +27,7 @@ module.exports = {
                 .setColor('#1084e3')
                 .setFooter("Endet um")
                 .setTimestamp(Date.now() + ((parseInt(msg.content.split(" ")[1]) * 1000 * 60)));
-            msg.channel.send({ embeds: [embed] }).then(async m => {
+            msg.channel.send({embeds: [embed]}).then(async m => {
                 m.react('🎁')
                 setTimeout(() => {
 
@@ -37,16 +37,24 @@ module.exports = {
 
                         let user;
 
-                        let r = getRandomInt(0, object.length);
-                        while(object[r].bot) {
-                            r = getRandomInt(0, object.length);
+
+                        if (object.length > 1) {
+                            let r = getRandomInt(0, object.length);
+                            while (object[r].bot) {
+                                r = getRandomInt(0, object.length);
+                            }
+
+                            user = object[r];
+
+                            msg.channel.send({
+                                content: "Gewinner: <@" + user.id + "> HGW!"
+                            })
+                        } else {
+                            msg.channel.send({
+                                content: "Es konnte kein Gewinner ausgelost werden!"
+                            })
                         }
 
-                        user = object[r];
-
-                        msg.channel.send({
-                            content: "Gewinner: <@" + user.id + "> HGW!"
-                        })
 
                         function getRandomInt(min, max) {
                             min = Math.ceil(min);

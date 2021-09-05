@@ -4,9 +4,6 @@
  */
 
 const chalk = require('chalk')
-const fs = require("fs");
-const path = require("path");
-
 class Logger {
 
     static __console_log = console.log;
@@ -94,6 +91,9 @@ class Logger {
         )
     }
 }
+const fs = require("fs");
+
+const path = require("path");
 
 console.log = (m, l) => {
     Logger.log(m, l)

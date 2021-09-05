@@ -26,6 +26,18 @@ process.on('uncaughtException', (err) => {
     console.log('Uncaught Exception: ' + err.stack, 2)
 })
 
+process.on('exit', exitHandler)
+process.on('SIGINT', exitHandler)
+process.on('SIGUSR1', exitHandler)
+process.on('SIGUSR2', exitHandler)
+
+
+function exitHandler() {
+    console.log("Saving log file...")
+    require('./Logger').Logger.save();
+    process.exit();
+}
+
 require('dotenv').config();
 
 require('./Client');
@@ -35,3 +47,4 @@ require('./worker/Workers')
 require('./EventDispatcher')
 
 require('./Levels')
+const {Logger} = require("./Logger");

@@ -22,6 +22,10 @@ console.log('\n' +
 
 require('./Logger')
 
+process.on('uncaughtException', (err) => {
+    console.log('Uncaught Exception: ' + err.stack, 2)
+})
+
 require('dotenv').config();
 
 require('./Client');

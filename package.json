@@ -8,7 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/0erPinq/Discord-Bot.git"
   },
-  "author": "Ben Siebert",
+  "author": {
+    "name": "MCTzOCK",
+    "email": "ben@mctzock.de"
+  },
   "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/0erPinq/Discord-Bot/issues"

@@ -24,7 +24,7 @@ module.exports = {
                 .setTitle("Gewinnspiel von " + msg.author.tag)
                 .setDescription("Preis: ``" + prize + "``")
                 .setAuthor("Giveaway 🎁")
-                .setColor('#e31010')
+                .setColor('#1084e3')
                 .setFooter("Endet um")
                 .setTimestamp(Date.now() + ((parseInt(msg.content.split(" ")[1]) * 1000 * 60)));
             msg.channel.send({ embeds: [embed] }).then(async m => {

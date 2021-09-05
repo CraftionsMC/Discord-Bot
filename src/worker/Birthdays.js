@@ -51,17 +51,18 @@ module.exports = {
                 console.log("Birthdays Today: " + users);
             }
 
-            client.guilds.cache.forEach(guild => {
+            client.guilds.cache.forEach(async guild => {
                 let channel = guild.channels.cache.find(c => c.name.toLowerCase().includes('geburtstag'));
-                if (channel) {
-                    users.forEach(user => {
-                        channel.send({
-                            content: "HGW <@" + user + "> zum Geburtstag!"
-                        })
-                    })
-                } else {
-                    console.log("Could not find Birthday Channel in Guild " + guild.id)
+                if(!channel){
+                    console.log("Could not find Birthday Channel in Guild " + guild.id + ". Creating new...")
+                    channel = await guild.channels.create("geburtstage")
                 }
+
+                users.forEach(user => {
+                    channel.send({
+                        content: "HGW <@" + user + "> zum Geburtstag!"
+                    })
+                })
             })
         }
     }

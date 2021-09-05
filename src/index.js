@@ -18,7 +18,9 @@ console.log('\n' +
     ' |______  /\\_______  /__|                        \n' +
     '        \\/         \\/                            \n' +
     '\n' +
-    'Made by MCTzOCK')
+    'Made by MCTzOCK\n\n')
+
+require('./Logger')
 
 require('dotenv').config();
 

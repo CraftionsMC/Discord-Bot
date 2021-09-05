@@ -23,7 +23,8 @@ module.exports = {
             })
         } else {
             if (parseInt(msg.content.split(" ")[1])) {
-                msg.channel.bulkDelete(parseInt(msg.content.split(" ")[1])).then(r => {
+                console.log(`Deleted ${msg.content.split(" ")[1]} messages in ${msg.channel.name} <${msg.channel.id}>`)
+                msg.channel.bulkDelete(parseInt(msg.content.split(" ")[1])).then((e) => {
                     msg.channel.send({
                         embeds: [
                             new MessageEmbed({

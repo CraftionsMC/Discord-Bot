@@ -8,6 +8,7 @@ module.exports = {
     execute: (msg) => {
         if (msg.mentions.members.first()) {
             msg.mentions.members.first().kick();
+            console.log(`Kicked user ${msg.mentions.members.first().user.tag} <${msg.mentions.members.first().user.id}>`)
             msg.channel.send({
                 embeds: [
                     new MessageEmbed({

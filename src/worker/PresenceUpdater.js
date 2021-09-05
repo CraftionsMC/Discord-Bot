@@ -9,9 +9,11 @@ let enabled = true;
 
 module.exports = {
     disable: () => {
+        console.log('Disabled Presence Update', 1)
         enabled = false;
     },
     enable: () => {
+        console.log('Enabled Presence Update', 1)
         enabled = true;
     },
     start: () => {

@@ -13,7 +13,7 @@ module.exports = async (msg) => {
     if (msg.author.bot) return;
 
     if (msg.content.startsWith(process.env.PREFIX)) {
-        let command = msg.content.split(" ")[0].split(process.env.PREFIX)[1];
+        let command = msg.content.split(" ")[0].split(process.env.PREFIX)[1].toLowerCase();
 
         console.log(`${msg.author.tag} executed command ` + msg.content, 3)
 

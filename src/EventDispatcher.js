@@ -12,3 +12,7 @@ client.on('ready', () => {
 client.on('messageCreate', (args) => {
     require('./events/MessageEvent')(args);
 })
+
+client.on('interactionCreate', (interaction) => {
+    require('./events/InteractionCreateEvent')(interaction)
+})

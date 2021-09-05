@@ -90,4 +90,8 @@ function getLevelXP(level) {
     )
 }
 
-module.exports = {getLevel, setLevel, nextLevel, getXP, setXP, nextXP, save, reload, getLevelXP}
+function getRaw() {
+    return config;
+}
+
+module.exports = {getLevel, setLevel, nextLevel, getXP, setXP, nextXP, save, reload, getLevelXP, getRaw}

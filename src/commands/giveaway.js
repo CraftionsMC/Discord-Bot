@@ -28,23 +28,22 @@ module.exports = {
                 .setFooter("Endet um")
                 .setTimestamp(Date.now() + ((parseInt(msg.content.split(" ")[1]) * 1000 * 60)));
             msg.channel.send({embeds: [embed]}).then(async m => {
-                m.react('🎁')
+                let rea = await m.react('🎁');
                 setTimeout(() => {
+
+                    rea.users.remove(client.user.id)
 
                     m.reactions.cache.get('🎁').users.fetch().then(u => {
 
                         let object = JSON.parse(JSON.stringify(u));
 
-                        let user;
-
-
-                        if (object.length > 1) {
-                            let r = getRandomInt(0, object.length);
-                            while (object[r].bot) {
-                                r = getRandomInt(0, object.length);
-                            }
+                        if (object.length > 0) {
+                            let user;
+                            let r = getRandomInt(0, object.length - 1);
 
                             user = object[r];
+
+                            console.log(JSON.stringify(user))
 
                             msg.channel.send({
                                 content: "Gewinner: <@" + user.id + "> HGW!"
@@ -63,7 +62,7 @@ module.exports = {
                         }
                     })
 
-                }, (parseInt(msg.content.split(" ")[1]) * 1000 * 60))
+                }, 10000) // (parseInt(msg.content.split(" ")[1]) * 1000 * 60)
             });
 
         } else {

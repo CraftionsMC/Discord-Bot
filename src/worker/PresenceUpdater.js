@@ -32,6 +32,6 @@ module.exports = {
                 if(index === activities.length)
                     index = 0;
             }
-        }, 2000)
+        }, 2500)
     }
 };

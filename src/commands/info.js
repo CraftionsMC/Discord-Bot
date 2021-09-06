@@ -39,11 +39,6 @@ module.exports = {
                             value: pkg.license
                         },
                         {
-                            name: "Source",
-                            inline: true,
-                            value: pkg.homepage
-                        },
-                        {
                             name: "Bugs",
                             inline: true,
                             value: pkg.bugs.url

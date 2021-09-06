@@ -50,7 +50,7 @@ module.exports = {
         commands.forEach(command => {
             data.fields.push({
                 name: process.env.PREFIX + command.name,
-                inline: false,
+                inline: true,
                 value: command.description
             })
         })

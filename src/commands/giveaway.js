@@ -43,8 +43,6 @@ module.exports = {
 
                             user = object[r];
 
-                            console.log(JSON.stringify(user))
-
                             msg.channel.send({
                                 content: "Gewinner: <@" + user.id + "> HGW!"
                             })

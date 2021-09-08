@@ -5,24 +5,27 @@
 
 const {MessageEmbed} = require("discord.js");
 const Levels = require('../Levels')
+const {getAuthorName, getAvatarUrl, check} = require("../Util");
 module.exports = {
     admin: false,
     description: "Zeigt deinen Rang an",
     execute: (msg) => {
-        msg.channel.send({
-            embeds: [
-                new MessageEmbed({
-                    title: "Pinq",
-                    color: "#1084e3",
-                    description: `Du hast aktuell einen ${Levels.getLevel(msg.author.id)} Pinq!`,
-                    author: {
-                        name: "0erPinq Bot",
-                        icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
-                    },
-                    fields: [],
-                    timestamp: new Date()
-                })
-            ]
-        })
+        if(check(process.env.ENABLE_LEVELS)) {
+            msg.channel.send({
+                embeds: [
+                    new MessageEmbed({
+                        title: "Pinq",
+                        color: "#1084e3",
+                        description: `Du hast aktuell einen ${Levels.getLevel(msg.author.id)} Pinq!`,
+                        author: {
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
+                        },
+                        fields: [],
+                        timestamp: new Date()
+                    })
+                ]
+            })
+        }
     }
 }

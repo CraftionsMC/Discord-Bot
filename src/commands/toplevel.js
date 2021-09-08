@@ -5,6 +5,7 @@
 
 const {MessageEmbed} = require("discord.js");
 const Levels = require('../Levels')
+const {getAuthorName, getAvatarUrl, check} = require("../Util");
 module.exports = {
     admin: false,
     description: "Zeigt die Zehn Nutzer mit den Besten Pinqs an",
@@ -35,8 +36,8 @@ module.exports = {
             color: "#10e83b",
             description: `Die Nutzer mit dem niedrigsten Pinq`,
             author: {
-                name: "0erPinq Bot",
-                icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                name: getAuthorName(),
+                icon_url: getAvatarUrl()
             },
             fields: [],
             timestamp: new Date()
@@ -52,10 +53,12 @@ module.exports = {
 
         if(data.fields.length === 0) delete data.fields;
 
-        msg.channel.send({
-            embeds: [
-                new MessageEmbed(data)
-            ]
-        })
+        if(check(process.env.ENABLE_LEVELS)) {
+            msg.channel.send({
+                embeds: [
+                    new MessageEmbed(data)
+                ]
+            })
+        }
     }
 }

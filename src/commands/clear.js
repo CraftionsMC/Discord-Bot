@@ -4,6 +4,7 @@
  */
 
 const {MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 module.exports = {
     execute: (msg) => {
         if (msg.content.split(" ").length !== 2) {
@@ -14,8 +15,8 @@ module.exports = {
                         color: "#e81010",
                         description: `Du musst die Anzahl der Nachrichten die gelöscht werden sollen angeben!`,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
                         },
                         timestamp: new Date()
                     })
@@ -32,8 +33,8 @@ module.exports = {
                                 color: "#10e83b",
                                 description: `Die Nachrichten wurden gelöscht!`,
                                 author: {
-                                    name: "0erPinq Bot",
-                                    icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                                    name: getAuthorName(),
+                                    icon_url: getAvatarUrl()
                                 },
                                 timestamp: new Date()
                             })
@@ -48,8 +49,8 @@ module.exports = {
                             color: "#e81010",
                             description: `Die Anzahl muss eine Zahl sein!`,
                             author: {
-                                name: "0erPinq Bot",
-                                icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                                name: getAuthorName(),
+                                icon_url: getAvatarUrl()
                             },
                             timestamp: new Date()
                         })

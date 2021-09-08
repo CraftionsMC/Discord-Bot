@@ -6,6 +6,7 @@
 const fs = require("fs");
 const path = require("path");
 const {MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 module.exports = {
     admin: false,
     description: "Zeigt Informationen zum Bot an",
@@ -19,8 +20,8 @@ module.exports = {
                     color: "#1084e3",
                     description: "Informationen zum Bot",
                     author: {
-                        name: "0erPinq Bot",
-                        icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                        name: getAuthorName(),
+                        icon_url: getAvatarUrl()
                     },
                     fields: [
                         {

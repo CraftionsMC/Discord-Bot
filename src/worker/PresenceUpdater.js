@@ -18,7 +18,7 @@ module.exports = {
     },
     start: () => {
 
-        let activities = ["Zerstört SkyWars auf Gomme", "Made by MCTzOCK#0047", "0erPinq Bot"];
+        let activities = ["Craftions Bot", process.env.PREFIX + "help", "Made by Craftions.net"];
 
         let index = 0;
 

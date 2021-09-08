@@ -4,6 +4,7 @@
  */
 
 const {MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 module.exports = {
     admin: false,
     description: "Verwalte Tickets",
@@ -41,8 +42,8 @@ module.exports = {
                                             color: "#1084e3",
                                             description: `Das Ticket wurde archiviert!`,
                                             author: {
-                                                name: "0erPinq Bot",
-                                                icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                                                name: getAuthorName(),
+                                                icon_url: getAvatarUrl()
                                             },
                                             timestamp: new Date()
                                         })
@@ -67,8 +68,8 @@ module.exports = {
                         color: "#1084e3",
                         description: `Nutzung dieses Befehls: ${process.env.PREFIX}ticket <help|delete|archive>`,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
                         },
                         timestamp: new Date()
                     })
@@ -84,8 +85,8 @@ module.exports = {
                         color: "#e81010",
                         description: `Dieser Befehl funktioniert nur in Ticket Kanälen!`,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
                         },
                         timestamp: new Date()
                     })

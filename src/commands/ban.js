@@ -4,6 +4,7 @@
  */
 
 const {MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 module.exports = {
     execute: (msg) => {
         if (msg.mentions.members.first()) {
@@ -16,8 +17,8 @@ module.exports = {
                         color: "#10e83b",
                         description: `Der Nutzer wurde erfolgreich gebannt!`,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
                         },
                         timestamp: new Date()
                     })
@@ -31,8 +32,8 @@ module.exports = {
                         color: "#e81010",
                         description: `Du musst den Nutzer den du bannen willst pingen!`,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
                         },
                         timestamp: new Date()
                     })

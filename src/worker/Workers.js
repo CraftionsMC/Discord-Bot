@@ -5,9 +5,13 @@
 
 const PresenceUpdater = require('./PresenceUpdater');
 const Birthdays = require('./Birthdays')
+const {check} = require("../Util");
+
+if(check(process.env.ENABLE_BIRTHDAYS)) {
+    Birthdays.start();
+}
 
 PresenceUpdater.start();
-Birthdays.start();
 
 module.exports = {
     PresenceUpdater,

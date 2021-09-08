@@ -6,6 +6,7 @@
 const Discord = require('discord.js')
 const client = require('../Client')
 const {MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 
 module.exports = {
     admin: true,
@@ -23,7 +24,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed()
                 .setTitle("Gewinnspiel von " + msg.author.tag)
                 .setDescription("Preis: ``" + prize + "``")
-                .setAuthor("Giveaway 🎁")
+                .setAuthor(getAuthorName(), getAvatarUrl())
                 .setColor('#1084e3')
                 .setFooter("Endet um")
                 .setTimestamp(Date.now() + ((parseInt(msg.content.split(" ")[1]) * 1000 * 60)));
@@ -71,8 +72,8 @@ module.exports = {
                         color: "#e81010",
                         description: `Du musst die Zeit (in Minuten) als auch den Gewinn angeben!`,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
                         },
                         timestamp: new Date()
                     })

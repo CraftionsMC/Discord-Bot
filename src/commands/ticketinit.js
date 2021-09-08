@@ -4,6 +4,7 @@
  */
 
 const {MessageActionRow, MessageButton, MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 
 module.exports = {
     admin: true,
@@ -23,8 +24,8 @@ module.exports = {
                     color: "#1084e3",
                     description: `Erhalte direkten Support vom Team`,
                     author: {
-                        name: "0erPinq Bot",
-                        icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                        name: getAuthorName(),
+                        icon_url: getAvatarUrl()
                     },
                     fields: [],
                     timestamp: new Date()

@@ -6,6 +6,7 @@
 const fs = require("fs");
 const path = require("path");
 const {MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 
 module.exports = {
     admin: false,
@@ -36,8 +37,8 @@ module.exports = {
                             color: "#10e83b",
                             description: `Dein Geburtstag wurde gesetzt!`,
                             author: {
-                                name: "0erPinq Bot",
-                                icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                                name: getAuthorName(),
+                                icon_url: getAvatarUrl()
                             },
                             timestamp: new Date()
                         })
@@ -56,8 +57,8 @@ module.exports = {
                         color: "#e81010",
                         description: `Du musst deinen Geburtstag (00.00) angeben!`,
                         author: {
-                            name: "0erPinq Bot",
-                            icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                            name: getAuthorName(),
+                            icon_url: getAvatarUrl()
                         },
                         timestamp: new Date()
                     })

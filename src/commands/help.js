@@ -6,6 +6,7 @@
 const fs = require("fs");
 const {MessageEmbed} = require("discord.js");
 const path = require("path");
+const {getAuthorName, getAvatarUrl} = require("../Util");
 module.exports = {
     admin: false,
     description: "Zeigt Hilfe für einen Befehl an.",
@@ -40,8 +41,8 @@ module.exports = {
             color: "#1084e3",
             description: `Hilfe zu allen Befehlen auf die du Zugriff hast`,
             author: {
-                name: "0erPinq Bot",
-                icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
+                name: getAuthorName(),
+                icon_url: getAvatarUrl()
             },
             fields: [],
             timestamp: new Date()

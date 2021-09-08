@@ -4,6 +4,7 @@
  */
 
 const {MessageEmbed} = require("discord.js");
+const {getAuthorName, getAvatarUrl, check} = require("../Util");
 
 module.exports = async (member) => {
     let channel = member.guild.channels.cache.find(c => c.name.toLowerCase().includes('hallo'));
@@ -13,20 +14,22 @@ module.exports = async (member) => {
         channel = await member.guild.channels.create("hallo")
     }
 
-    channel.send({
-        embeds: [
-            new MessageEmbed({
-                title: "Willkommen",
-                color: "#1084e3",
-                description: "Willkommen <@" + member.id + "> auf dem Community Discord Server von 0erPinq!",
-                author: {
-                    name: "0erPinq Bot",
-                    icon_url: "https://avatars.githubusercontent.com/u/90091315?s=200&v=4"
-                },
-                timestamp: new Date()
-            })
-        ]
-    })
+    if(check(process.env.ENABLE_WELCOME)) {
+        channel.send({
+            embeds: [
+                new MessageEmbed({
+                    title: "Willkommen",
+                    color: "#1084e3",
+                    description: "Willkommen <@" + member.id + "> auf dem Discord server von " + member.guild.name + "!",
+                    author: {
+                        name: getAuthorName(),
+                        icon_url: getAvatarUrl()
+                    },
+                    timestamp: new Date()
+                })
+            ]
+        })
+    }
 
     require('./MemberStats').update(member.guild).then(r => delete require.cache[require.resolve('./MemberStats')]);
 }
